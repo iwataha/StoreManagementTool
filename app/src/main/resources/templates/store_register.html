@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>店舗登録画面</title>
+</head>
+
+<body>
+	<h2>登録</h2>
+	<form th:action="@{/store_register}" the:object="${storeForm}" method="post">
+		<label for="storeName">店舗名:</label><br>
+		<input type="text" id="storeName" name="storeName"　required><br>
+		<p th:text="${StoreNameError}"></p>
+
+		<label for="address">住所:</label><br>
+		<input type="text" id="address" name="address" required><br>
+
+		<label for="phoneNumber">電話番号(ハイフンなし):</label><br>
+		<input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+		<p th:text="${PhoneNumberError}"></p>
+
+		<label for="openDate">開店日:</label><br>
+		<input type="date" id="openDate" name="openDate" required><br>
+		
+		<label for="user">管理者:</label><br>
+		<input type="text" id="user" name="user" required><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+
+
+</html>

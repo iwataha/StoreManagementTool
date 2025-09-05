@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>ユーザー編集</title>
+</head>
+
+<body>
+	<h1>ユーザー編集</h1>
+	<form th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+		<input type="hidden" th:field="*{id}" />
+		<div>
+			<label for="name">名前:</label>
+			<input type="text" id="name" th:field="*{userName}">
+		</div>
+		<div>
+			<label for="email">メール:</label>
+			<input type="email" id="email" th:field="*{email}">
+		</div>
+		<!--パスワードを変更せず受け渡し
+			<input type="hidden" name="password" th:value="${user.password}">-->
+		<button type="submit">更新</button>
+	</form>
+</body>
+
+</html>

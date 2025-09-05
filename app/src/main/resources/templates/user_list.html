@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー一覧</title>
+</head>
+
+<body>
+	<h1>ユーザー一覧</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>Email</th>
+				<!--				<th>店舗名</th>
+				<th>店舗住所</th>-->
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.userName}"></td>
+				<td th:text="${user.email}"></td>
+<!--				<td th:text="${user.storeName}"></td>
+				<td th:text="${user.address}"></td>-->
+				<td>
+					<form th:action="@{/user/store/{id}(id=${user.id})}" method="get">
+						　<button>店舗一覧</button>
+					</form>
+				</td>
+
+				<td>
+					<form th:action="@{/user/edit/{id}(id=${user.id})}" method="get">
+						　<button>更新</button>
+					</form>
+				</td>
+
+				<td>
+					<form th:action="@{/user/delete/{id}(id=${user.id})}" method="get">
+						　<button>削除</button>
+					</form>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

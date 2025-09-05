@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>店舗一覧</title>
+</head>
+
+<body>
+	<h1>店舗一覧</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>店舗ID</th>
+				<th>店舗名</th>
+				<th>店舗住所</th>
+				<th>電話番号</th>
+				<th>開店日</th>
+				<th>管理者</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="store : ${stores}">
+				<td th:text="${store.storeId}"></td>
+				<td th:text="${store.storeName}"></td>
+				<td th:text="${store.address}"></td>
+				<td th:text="${store.phoneNumber}"></td>
+				<td th:text="${store.openDate}"></td>
+				<td th:text="${store.userName}"></td>
+				
+				<td>
+					<form th:action="@{/store/edit/{storeid}(storeid=${store.storeId})}" method="get">
+						　<button>更新</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/store/delete/{storeid}(storeid=${store.storeId})}" method="get">
+						　<button>削除</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
