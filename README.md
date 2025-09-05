@@ -1,0 +1,2 @@
+# StoreManagementTool
+ポートフォリオ用
